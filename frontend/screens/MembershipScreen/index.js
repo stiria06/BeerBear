@@ -4,61 +4,44 @@ import {
   createBottomTabNavigator,
   createStackNavigator
 } from "react-navigation";
-import Main from "./Main";
-import Event from "./Event";
-import Notification from "./Notification";
+import Coupon from "./Coupon";
+import Profile from "./Profile";
 import TabBarIcon from "../../components/TabBarIcon";
 import Colors from "../../constants/Colors";
-const HomeTabs = createBottomTabNavigator({
-  Main: {
-    screen: Main,
-    navigationOptions: {
-      title: "홈",
-      tabBarIcon: ({ focused }) => (
-        <TabBarIcon
-          focused={focused}
-          name={
-            Platform.OS === "ios"
-              ? `ios-home${focused ? "" : "-outline"}`
-              : "md-home"
-          }
 
-        />
-      )
-    }
-  },
-  Event: {
-    screen: Event,
+const MembershipTabs = createBottomTabNavigator({
+  Profile: {
+    screen: Profile,
     navigationOptions: {
-      title: "이벤트",
+      title: "내정보",
       tabBarIcon: ({ focused }) => (
         <TabBarIcon
           focused={focused}
           name={
             Platform.OS === "ios"
-              ? "ios-calendar"
-              : "md-calendar"
+              ? `ios-person${focused ? "" : "-outline"}`
+              : "md-person"
           }
         />
       )
     }
   },
-  Notification: {
-    screen: Notification,
+  Coupon: {
+    screen: Coupon,
     navigationOptions: {
-      title: "알림",
+      title: "쿠폰",
       tabBarIcon: ({ focused }) => (
         <TabBarIcon
           focused={focused}
           name={
             Platform.OS === "ios"
-              ? `ios-information-circle${focused ? "" : "-outline"}`
-              : "md-information-circle"
+              ? "ios-beer"
+              : "md-beer"
           }
         />
       )
     }
-  }
+  },
 },
 {
   tabBarOptions: {
@@ -68,7 +51,7 @@ const HomeTabs = createBottomTabNavigator({
 );
 
 export default createStackNavigator(
-  { HomeTabs }, 
+  { MembershipTabs }, 
   { 
     headerMode: "none" ,
   });
