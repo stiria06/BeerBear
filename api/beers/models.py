@@ -22,6 +22,14 @@ class Beer(models.Model):
         return 'beer_id : {} - {}'.format(self.ref, self.name)
 
 
-class Rating(models.Model):
-    person = models.ForeignKey(User, on_delete='CASCADE')
-    rank = models.IntegerField(choices=list(zip(range(1, 6), range(1, 6))))
+class BeerRating(models.Model):
+    creator = models.ForeignKey(User, on_delete='CASCADE',null=True)
+    beer = models.ForeignKey(Beer, on_delete="CASCADE",null=True)
+    score = models.IntegerField(choices=list(zip(range(1, 6), range(1, 6))))
+
+class BeerReview(models.Model):
+    creator = models.ForeignKey(User, on_delete="CASCADE", null=True)
+    beer = models.ForeignKey(Beer, on_delete="CASCADE", null=True)
+    comment = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)  # first created
+    updated_at = models.DateTimeField(auto_now=True)  # last-modified

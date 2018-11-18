@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
     'rest_framework.authtoken',
-    'users',
     'beershops',
     'beers',
+    'coupons',
+    'chats',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'users.User'
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}

@@ -3,7 +3,7 @@ from rest_framework.serializers import (
     ModelSerializer,
     SerializerMethodField
 )
-from .models import Beer
+from .models import Beer, BeerRating, BeerReview
 
 class BeerSerializer(ModelSerializer):
     
@@ -11,4 +11,28 @@ class BeerSerializer(ModelSerializer):
         model = Beer
         fields = (
             '__all__'
+        )
+
+class BeerRatingSerializer(ModelSerializer):
+
+    class Meta:
+        model = BeerRating
+        field = (
+            'creator',
+            'beer',
+            'score'
+        )
+
+
+class BeerReviewSerializer(ModelSerializer):
+    
+    class Meta:
+        model = BeerRating
+        field = (
+            'creator',
+            'beer',
+            'score',
+            'comment',
+            'created_at',
+            'updated_at',
         )

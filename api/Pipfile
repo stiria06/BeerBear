@@ -17,6 +17,10 @@ django-extensions = "*"
 ipython = {extras = ["notebook"]}
 numpy = "*"
 pandas = "*"
+graphviz = "*"
+pyparsing = "*"
+pydot = "*"
+pydot-ng = "*"
 
 
 [dev-packages]
