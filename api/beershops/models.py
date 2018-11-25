@@ -10,6 +10,10 @@ class BeerShop(models.Model):
     beer_list = models.ManyToManyField(Beer, related_name='sale_beershop')
     shop_image = models.ImageField(null=True, blank=True)
     owner = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
+    favorite_user_list = models.ManyToManyField(
+        User, related_name='favorite_beershop_list', blank=True, null=True)
 
 class BeerShopReview(models.Model):
     creator = models.ForeignKey(User, on_delete="CASCADE", null=True)
