@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Beer, BeerRating, BeerReview
+from .models import Beer, BeerReview
 
 admin.site.register(Beer)
-admin.site.register(BeerRating)
 admin.site.register(BeerReview)

@@ -3,7 +3,16 @@ from rest_framework.serializers import (
     ModelSerializer,
     SerializerMethodField
 )
-from .models import Beer, BeerRating, BeerReview
+from .models import Beer, BeerReview
+from django.contrib.auth import get_user_model
+User = get_user_model()
+class FeedUserSerializer(ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id','username')
+
+
 
 class BeerSerializer(ModelSerializer):
     
@@ -13,21 +22,11 @@ class BeerSerializer(ModelSerializer):
             '__all__'
         )
 
-class BeerRatingSerializer(ModelSerializer):
-
-    class Meta:
-        model = BeerRating
-        field = (
-            'creator',
-            'beer',
-            'score'
-        )
-
 
 class BeerReviewSerializer(ModelSerializer):
     
     class Meta:
-        model = BeerRating
+        model = BeerReview
         field = (
             'creator',
             'beer',

@@ -1,8 +1,7 @@
 from django.urls import path, include
 from .views import (
     BeerViewSet, 
-    BeerRatingDetailAPIView,
-    BeerRatingListAPIView
+    BeerFavoriteAPIView
 )
 app_name = "beers"
 
@@ -21,6 +20,7 @@ beer_detail = BeerViewSet.as_view({
 urlpatterns = [
     path('', beer_list, name='beer-list'),
     path('<int:pk>/', beer_detail, name='beer-detail'),
-    path('<int:pk>/rating/', BeerRatingListAPIView.as_view(), name='beer-rating'),
-    path('<int:pk>/rating/<int:rating_id>/',BeerRatingDetailAPIView.as_view(),name='beer-rating-detail'),
+    path("<int:beer_id>/favorite/", BeerFavoriteAPIView.as_view(), name='beer-favorite'),
+    # path('<int:pk>/rating/', BeerRatingListAPIView.as_view(), name='beer-rating'),
+    # path('<int:pk>/rating/<int:rating_id>/',BeerRatingDetailAPIView.as_view(),name='beer-rating-detail'),
 ]
