@@ -5,6 +5,7 @@ import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import HomeScreen from "../screens/HomeScreen";
 import BeerSearchScreen from "../screens/BeerSearchScreen";
 import MembershipScreen from "../screens/MembershipScreen";
+import OwnerScreen from "../screens/OwnerScreen";
 // import BuddyMatchingScreen from "../screens/BuddyMatchingScreen";
 // import ShopSearchScreen from "../screens/ShopSearchScreen";
 import Colors from "../constants/Colors";
@@ -88,6 +89,20 @@ export default createDrawerNavigator(
         drawerLabel: "멤버십 관리",
         drawerIcon: ({ tintColor }) => (
           <Ionicons name="md-card" size={17} color={tintColor} />
+        )
+      }
+    },
+    OwnerScreen: {
+      screen: OwnerScreen,
+      navigationOptions: {
+        header: ({ state }) => {
+          return {
+            tintColor: Colors.tintColor
+          };
+        },
+        drawerLabel: "Owner 페이지",
+        drawerIcon: ({ tintColor }) => (
+          <Ionicons name="md-bowtie" size={17} color={tintColor} />
         )
       }
     }
