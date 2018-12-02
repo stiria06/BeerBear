@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { Content, ListItem, List } from "native-base";
 import { Ionicons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
-
+import Button from 'react-native-button';
+import ShopInfo from '../assets/ShopInfo';
 export default class ShopScreen extends React.Component {
   state ={
     
@@ -13,16 +14,19 @@ export default class ShopScreen extends React.Component {
   
 
   render() {
-    let ShopPic ={ uri : 'http://magazine.hankyung.com/magazinedata/images/photo/201802/0021216692d3f97f0c5c2ca6f05b05c3.jpg'};
-    let ShopName = 'Shopname'
-    const shopData = this.props.shopData;
+    let ShopPic ={ uri : ShopInfo["user1"].picture };
+    let ShopName = ShopInfo["user1"].name;
+    let ShopAddress = ShopInfo["user1"].address;
+    let ShopPhoneNum = ShopInfo["user1"].phone_num;
+    let ShopHomepage = ShopInfo["user1"].homepage;
+    
     return (
       <View style={styles.container}>
         <View style = {styles.topBar}>
           <View style = {styles.title}>
               <FontAwesome style={styles.title}  size={30} name="arrow-left" />
               <Text style={styles.title}> {ShopName}</Text>
-              <Button  style={{height:30, width:30  }}>
+              <Button  style={{height:30, width:30  }} onPress={this.onPressButton} >
                 <Ionicons size={30} name='md-heart-empty'/>
               </Button>
           </View>
