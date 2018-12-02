@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { Content, ListItem, List } from "native-base";
 import { Ionicons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import Button from 'react-native-button';
