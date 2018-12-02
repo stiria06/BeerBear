@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { Content, ListItem, List } from "native-base";
 import { Ionicons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
 
-export default class index extends React.Component {
+export default class ShopScreen extends React.Component {
   state ={
     
   }
@@ -22,7 +22,9 @@ export default class index extends React.Component {
           <View style = {styles.title}>
               <FontAwesome style={styles.title}  size={30} name="arrow-left" />
               <Text style={styles.title}> {ShopName}</Text>
-              <Ionicons style={styles.title}  size={30} name="md-heart-empty" />
+              <Button  style={{height:30, width:30  }}>
+                <Ionicons size={30} name='md-heart-empty'/>
+              </Button>
           </View>
         </View>
        
