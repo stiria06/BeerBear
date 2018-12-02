@@ -1,1 +1,39 @@
+export default Shop = [
 
+    shop1 = {
+        id : "s459249503",
+        name: "봉구비어",
+        customers_counting
+        
+    },
+
+    shop2 = {
+        id: "test2",
+        password: "123456",
+
+    },
+
+    shop3 = {
+        id: "test3",
+        password: "123456",
+
+    },
+
+    shop4 = {
+        id: "test4",
+        password: "123456",
+
+    },
+
+    shop5 = {
+        id: "test5",
+        password: "123456",
+
+    },
+
+    shop6 = {
+        id: "test6",
+        password: "123456",
+
+    }
+]
