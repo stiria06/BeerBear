@@ -47,12 +47,17 @@ export default class ShopScreen extends React.Component {
        
           <ListItem style={{ flexDirection:'row', }}>
             <FontAwesome style={{}} color="#1FB6FF" size={30} name="map-marker" />
-            <Text style={{ fontSize:21.33, paddingLeft:20}}>shopData.address</Text>
+            <Text style={{ fontSize:21.33, paddingLeft:20}}>{ShopAddress}</Text>
           </ListItem>
         
           <ListItem style={{  flexDirection:'row',   }}>
             <FontAwesome  color="#1FB6FF" size={30} name="home" />
-            <Text style={{ fontSize:21.33, paddingLeft:20}}>shopData.homepage</Text>
+            <Text style={{ fontSize:21.33, paddingLeft:20}}>{ShopHomepage}</Text>
+          </ListItem>
+      
+          <ListItem style={{  flexDirection:'row',   }}>
+            <FontAwesome  color="#1FB6FF" size={30} name="phone" />
+            <Text style={{ fontSize:21.33, paddingLeft:20}}>{ShopPhoneNum}</Text>
           </ListItem>
        
           <ListItem style={{  flexDirection:'row',   }}>
