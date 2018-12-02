@@ -1,39 +1,29 @@
-export default Shop = [
-
-    shop1 = {
-        id : "s459249503",
-        name: "봉구비어",
-        customers_counting
-        
-    },
-
-    shop2 = {
-        id: "test2",
+export default BeerShop = [
+    user1 = {
+        id : "s123",
         password: "123456",
-
+        name : "크래프트한스 이태원점",
+        customers_counting : 3,
+        address : "서울특별시 용산구 이태원로19길 6-5",
+        homepage: "http://www.crafthans.co.kr/",
+        photo : "http://www.crafthans.co.kr/rolling_banner/item/ce872ea024.jpg"
     },
-
-    shop3 = {
-        id: "test3",
+    user2 = {
+        id: "s456",
         password: "123456",
-
+        name : "blue55",
+        customers_counting : 8,
+        address : "서울특별시 용산구 보광로55길 3",
+        homepage: "https://www.facebook.com/blue55itawon/",
+        photo : "https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-9/12118864_522290421272662_3296026789269643423_n.jpg?_nc_cat=102&_nc_ht=scontent-icn1-1.xx&oh=228756641ff8cdd80777155211e43351&oe=5C6A376B"
     },
-
-    shop4 = {
-        id: "test4",
+    user3 = {
+        id: "s789",
         password: "123456",
-
-    },
-
-    shop5 = {
-        id: "test5",
-        password: "123456",
-
-    },
-
-    shop6 = {
-        id: "test6",
-        password: "123456",
-
+        name : "크래프트한스 이태원점",
+        customers_counting : 10,
+        address : "서울특별시 마포구 연희로 35",
+        homepage: "https://www.facebook.com/craftonepub/",
+        photo : "http://mblogthumb1.phinf.naver.net/MjAxNjEyMjBfMzUg/MDAxNDgyMjA1ODMxMjM1.yR99ihFeIYu-cAt8UYGrOyr2sK0jVIv1H6rK4zJZw1Ag.hcCZyp--E2Dedy8MwvWEIS5fodFn5Z_HzL31KKaaoBMg.JPEG.rachel2u/IMG_1625.JPG?type=w2"
     }
 ]
