@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
     'rest_framework.authtoken',
+    'qr_code',
     'beershops',
     'beers',
     'coupons',
@@ -132,3 +133,5 @@ GRAPH_MODELS = {
     'all_applications': True,
     'group_models': True,
 }
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/media/'
