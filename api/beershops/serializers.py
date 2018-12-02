@@ -4,7 +4,7 @@ from rest_framework.serializers import (
     ModelSerializer,
     SerializerMethodField
 )
-from .models import BeerShop
+from .models import BeerShop, Stamp
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -34,3 +34,9 @@ class BeershopDetailSerializer(ModelSerializer):
         fields = (
             '__all__'
         )
+
+
+class StampSerializer(ModelSerializer):
+    class Meta:
+        model = Stamp
+        fields = ('__all__')
