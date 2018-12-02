@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { Content, ListItem, List } from "native-base";
 import { Ionicons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
 
-export default class App extends React.Component {
+export default class index extends React.Component {
   state ={
     
   }
