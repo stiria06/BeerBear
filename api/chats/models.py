@@ -3,8 +3,8 @@ from coupons.models import Coupon
 from users.models import User
 
 class Chat(models.Model):
-    userlist = models.ManyToManyField(User, null=True)
-    coupons = models.ManyToManyField(Coupon, null=True)
+    userlist = models.ManyToManyField(User)
+    coupons = models.ManyToManyField(Coupon)
     is_active = models.BooleanField()
 
 class Message(models.Model):

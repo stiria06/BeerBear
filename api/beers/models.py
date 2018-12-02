@@ -18,7 +18,7 @@ class Beer(models.Model):
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(null=True)
     favorite_user_list = models.ManyToManyField(
-        User, related_name='favorite_beer_list',blank=True, null=True)
+        User, related_name='favorite_beer_list',blank=True)
     def __str__(self):
         return 'beer_id : {} - {}'.format(self.ref, self.name)
 
