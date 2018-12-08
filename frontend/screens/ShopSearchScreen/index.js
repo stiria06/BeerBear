@@ -15,8 +15,10 @@ class Review extends React.Component{
       <Content>
       <List>
       <ListItem style={{  justifyContent:'center',   }}>
+            
             <Text>{this.props.userName}</Text>
             <Text>{this.props.content}</Text>
+            <Text>{this.props.rate}</Text>
             <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
             <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
             <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
@@ -97,7 +99,7 @@ export default class ShopScreen extends React.Component {
        
           <ListItem style={{  flexDirection:'row',   }}>
             <MaterialIcons backgroundColor="transparent" color="#1FB6FF" size={30} name="rate-review" />
-            <Review userName= '홍길동' content='good'/>
+            <Review userName= '홍길동' content='good' rate={5}/>
           </ListItem>
       
         </List>
