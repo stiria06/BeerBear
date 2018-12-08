@@ -12,22 +12,22 @@ class Review extends React.Component{
         
       
 
-      <Content>
-      <List>
-      <ListItem style={{  justifyContent:'center',   }}>
+        <Content>
+          <List>
+            <ListItem style={{  justifyContent:'center',   }}>
             
-            <Text>{this.props.userName}</Text>
-            <Text>{this.props.content}</Text>
-            <Text>{this.props.rate}</Text>
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-          </ListItem>
+              <Text>{this.props.userName}</Text>
+              <Text>{this.props.content}</Text>
+              <Text>{this.props.rate}</Text>
+              <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
+              <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
+              <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
+              <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
+              <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
+            </ListItem>
       
-      </List>
-      </Content>
+          </List>
+        </Content>
       </View>
     );
 
