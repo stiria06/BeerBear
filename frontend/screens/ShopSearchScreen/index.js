@@ -4,6 +4,20 @@ import { Content, ListItem, List } from "native-base";
 import { Ionicons, FontAwesome, MaterialIcons, Entypo } from '@expo/vector-icons';
 import Button from 'react-native-button';
 import ShopInfo from '../assets/ShopInfo';
+
+class Review extends React.Component{
+  render(){
+    return(
+      <View style={{alignItems: 'center'}}>
+        <Text>{this.props.userName}</Text>
+        <Text>{this.props.content}</Text>
+      </View>
+    );
+
+  }
+
+}
+
 export default class ShopScreen extends React.Component {
   state ={
     
@@ -67,13 +81,10 @@ export default class ShopScreen extends React.Component {
           </ListItem>
        
           <ListItem style={{  flexDirection:'row',   }}>
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="md-beer" />
-            <Text style={{ fontSize:21.33, paddingLeft:20}}>shopData.menu</Text>
-          </ListItem>
-          <ListItem style={{  flexDirection:'row',   }}>
             <MaterialIcons backgroundColor="transparent" color="#1FB6FF" size={30} name="rate-review" />
-            <Text style={{ fontSize:21.33, paddingLeft:20}}>shopData.review</Text>
+            <Review userName= '홍길동' content='good'/>
           </ListItem>
+      
         </List>
       </Content>
         
