@@ -65,7 +65,7 @@ export default createDrawerNavigator(
       }
     },
     ShopSearchScreen: {
-      screen: HomeScreen,
+      screen: ShopSearchScreen,
       navigationOptions: {
         header: ({ state }) => {
           return {
