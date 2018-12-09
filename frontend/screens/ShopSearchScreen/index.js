@@ -4,8 +4,8 @@ import {
   createBottomTabNavigator,
   createStackNavigator
 } from "react-navigation";
-import shopscreen from "./shopscreen";
-import map from "./map";
+import ShopScreen from "./ShopScreen";
+import Map from "./Map";
 import { FontAwesome } from "@expo/vector-icons";
 import TabBarIcon from "../../components/TabBarIcon";
 import Colors from "../../constants/Colors";
@@ -14,7 +14,7 @@ const ShopSearchTabs = createBottomTabNavigator({
 
   Map: {
 
-    screen: map,
+    screen: Map,
 
     navigationOptions: {
 
@@ -35,7 +35,7 @@ const ShopSearchTabs = createBottomTabNavigator({
 
   Shopscreen: {
 
-    screen: shopscreen,
+    screen: ShopScreen,
 
     navigationOptions: {
 
