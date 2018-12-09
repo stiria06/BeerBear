@@ -55,7 +55,9 @@ export default class ShopScreen extends React.Component {
       <View style={styles.container}>
         <View style = {styles.topBar}>
           <View style = {styles.title}>
-              <FontAwesome style={styles.title}  size={30} name="arrow-left" />
+              <Button  style={{height:30, width:30  }} onPress={this.onPressButton} >
+                <FontAwesome style={styles.title}  size={30} name="arrow-left" />
+              </Button>
               <Text style={styles.title}> {ShopName}</Text>
               <Button  style={{height:30, width:30  }} onPress={this.onPressButton} >
                 <Ionicons size={30} color='white' name='md-heart-empty'/>
