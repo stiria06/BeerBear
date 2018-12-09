@@ -9,8 +9,8 @@ export default class App extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      lat:0,
-      long:0
+      lat:100,
+      long:100,
     }
   }
  
@@ -20,9 +20,9 @@ export default class App extends React.Component {
         var lati=position.coords.latitude
         var longi=position.coords.longitude
 
-        this.setState( state => return {
+        this.setState( {
           lat: lati,
-          long: longi
+          long: longi,
         })     
       }
     );
@@ -32,11 +32,11 @@ export default class App extends React.Component {
         <Text>{this.state.lat} {this.state.long} </Text>
         <MapView 
           style={styles.map}
-          Region={{
+          initialRegion={{
             latitude:this.state.lat,
             longitude:this.state.long,
             latitudeDelta: 0.1,
-            longitudeDelta: 0.1,
+            longitudeDelta: 0.05,
           }}>
 
           <MapView.Marker
