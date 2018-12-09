@@ -36,7 +36,7 @@ export default class ShopScreen extends React.Component {
   constructor(){
     super()
     this.state={
-      text=''
+      text:''
     } 
   }
   onPressLikeButton(){
