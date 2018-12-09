@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 import MapView from 'react-native-maps';
-
+import ShopInfo from '../assets/ShopInfo';
 
 
 
@@ -37,17 +37,16 @@ export default class App extends React.Component {
             longitude:this.state.long,
             latitudeDelta: 0.1,
             longitudeDelta: 0.05,
-          }}>
+          }}
+          showsUserLocation
+        >
 
           <MapView.Marker
             coordinate={{
               latitude: this.state.lat,
               longitude: this.state.long,
             }}/>
-      
-        
-
-          
+    
         </MapView>
       </View>
     );
