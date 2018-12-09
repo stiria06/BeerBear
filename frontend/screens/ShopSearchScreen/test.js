@@ -1,6 +1,6 @@
 import {TextInput} from 'react-native'
 import React from 'react'
-import 
+import Review from '..assets/Review'
 
 
 <MapView style={styles.map} showsUserLocation followsUserLocation initialRegion:{}/>
