@@ -17,11 +17,9 @@ class Review extends React.Component{
               <Text>{this.props.content}</Text>
               <Text>{this.props.rate}</Text>
               <Text>{this.props.date}</Text>
+              while(this.props.rate<1){
               <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-              <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-              <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-              <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-              <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
+              }
               <Button style={{height:30, width:30}}
             </ListItem>
       
@@ -35,8 +33,11 @@ class Review extends React.Component{
 }
 
 export default class ShopScreen extends React.Component {
-  state ={
-    
+  constructor(){
+    super()
+    this.state={
+      text=''
+    } 
   }
   onPressLikeButton(){
 
