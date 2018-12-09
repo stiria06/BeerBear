@@ -15,6 +15,7 @@ export default class App extends React.Component {
   }
  
   render() {
+    
     navigator.geolocation.getCurrentPosition(
       position => {
         var lati=position.coords.latitude
