@@ -20,7 +20,7 @@ class Review extends React.Component{
               <Text>{this.props.rate}</Text>
               <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
               
-              <Button style={{height:30, width:30}}
+              <Button style={{height:30, width:30}} />
             </ListItem>
       
           </List>
