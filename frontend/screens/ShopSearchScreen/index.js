@@ -20,7 +20,7 @@ export default class App extends React.Component {
         var lati=position.coords.latitude
         var longi=position.coords.longitude
 
-        this.setState({
+        this.setState( state => return {
           lat: lati,
           long: longi
         })     
