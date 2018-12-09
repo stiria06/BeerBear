@@ -33,6 +33,11 @@ class Review extends React.Component{
 
 }
 
+class Stars extends React.Component{
+  
+
+}
+
 export default class ShopScreen extends React.Component {
   constructor(){
     super()
@@ -56,7 +61,7 @@ export default class ShopScreen extends React.Component {
     let ShopAddress = ShopInfo[0].address;
     let ShopPhoneNum = ShopInfo[0].phone_num;
     let ShopHomepage = ShopInfo[0].homepage;
-    
+    let ShopRate = 4.7;
     return (
       <View style={styles.container}>
         <View style = {styles.topBar}>
@@ -79,6 +84,7 @@ export default class ShopScreen extends React.Component {
           </ListItem>
 
           <ListItem style={{  justifyContent:'center',   }}>
+            <Text>{ShopRate}</Text>
             <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
             <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
             <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
