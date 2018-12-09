@@ -29,6 +29,7 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
+        <Text>{this.state.lat} {this.state.long} </Text>
         <MapView 
           style={styles.map}
           Region={{
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
   },
   map: {
     position: 'absolute',
-    top:0,
+    top:40,
     left:0,
     bottom:0,
     right:0,
