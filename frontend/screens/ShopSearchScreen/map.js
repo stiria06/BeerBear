@@ -39,6 +39,7 @@ export default class App extends React.Component {
             longitudeDelta: 0.05,
           }}
           showsUserLocation
+          followsUserLocation
         >
 
           <MapView.Marker
