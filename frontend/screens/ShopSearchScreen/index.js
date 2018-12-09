@@ -4,8 +4,8 @@ import {
   createBottomTabNavigator,
   createStackNavigator
 } from "react-navigation";
-import Coupon from "./Coupon";
-import Map from "./Map";
+import shopscreen from "./shopscreen";
+import map from "./map";
 import { FontAwesome } from "@expo/vector-icons";
 import TabBarIcon from "../../components/TabBarIcon";
 import Colors from "../../constants/Colors";
@@ -14,7 +14,7 @@ const ShopSearchTabs = createBottomTabNavigator({
 
   Map: {
 
-    screen: Map,
+    screen: map,
 
     navigationOptions: {
 
@@ -33,13 +33,13 @@ const ShopSearchTabs = createBottomTabNavigator({
     }
   },
 
-  Coupon: {
+  Shopscreen: {
 
-    screen: Coupon,
+    screen: shopscreen,
 
     navigationOptions: {
 
-      title: "쿠폰",
+      title: "샵",
 
       tabBarIcon: ({ focused }) => (
 
@@ -83,7 +83,7 @@ const ShopSearchTabs = createBottomTabNavigator({
 
 export default createStackNavigator(
 
-  { MembershipTabs }, 
+  { ShopScreenTabs }, 
 
   { 
 
