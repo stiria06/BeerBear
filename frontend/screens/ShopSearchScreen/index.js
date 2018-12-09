@@ -13,13 +13,9 @@ import Colors from "../../constants/Colors";
 const ShopSearchTabs = createBottomTabNavigator({
 
   Map: {
-
     screen: Map,
-
     navigationOptions: {
-
       title: "지도",
-
       tabBarIcon: ({ focused }) => (
         <TabBarIcon
           focused={focused}
@@ -34,59 +30,35 @@ const ShopSearchTabs = createBottomTabNavigator({
   },
 
   Shopscreen: {
-
     screen: ShopScreen,
-
     navigationOptions: {
-
       title: "샵",
-
       tabBarIcon: ({ focused }) => (
-
         <TabBarIcon
-
           focused={focused}
-
           name={
-
             Platform.OS === "ios"
-
               ? "ios-beer"
-
               : "md-beer"
-
           }
-
         />
 
       )
-
     }
-
   },
-
 },
 
 {
-
   tabBarOptions: {
-
       activeTintColor: Colors.tintColor,
-
   }
-
 }
-
 );
 
 
 
 export default createStackNavigator(
-
   { ShopScreenTabs }, 
-
   { 
-
     headerMode: "none" ,
-
   });
