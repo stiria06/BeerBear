@@ -7,7 +7,7 @@ import BeerSearchScreen from "../screens/BeerSearchScreen";
 import MembershipScreen from "../screens/MembershipScreen";
 import OwnerScreen from "../screens/OwnerScreen";
 // import BuddyMatchingScreen from "../screens/BuddyMatchingScreen";
-// import ShopSearchScreen from "../screens/ShopSearchScreen";
+import ShopSearchScreen from "../screens/ShopSearchScreen";
 import Colors from "../constants/Colors";
 import window from "../constants/Layout";
 const CustomDrawerComponent = (props) => (
