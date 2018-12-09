@@ -9,9 +9,6 @@ class Review extends React.Component{
   render(){
     return(
       <View style={{alignItems: 'center'}}>
-        
-      
-
         <Content>
           <List>
             <ListItem style={{  justifyContent:'center',   }}>
@@ -19,11 +16,13 @@ class Review extends React.Component{
               <Text>{this.props.userName}</Text>
               <Text>{this.props.content}</Text>
               <Text>{this.props.rate}</Text>
+              <Text>{this.props.date}</Text>
               <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
               <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
               <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
               <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
               <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
+              <Button style={{height:30, width:30}}
             </ListItem>
       
           </List>
@@ -39,9 +38,14 @@ export default class ShopScreen extends React.Component {
   state ={
     
   }
-  onPressButton(){
+  onPressLikeButton(){
 
   }
+  onPressBackButton(){
+  }
+  onPressAddReviewButton(){}
+  onPressDeleteReviewButton(){}
+  onPressModifyReviewButton(){}
   
 
   render() {
@@ -55,11 +59,11 @@ export default class ShopScreen extends React.Component {
       <View style={styles.container}>
         <View style = {styles.topBar}>
           <View style = {styles.title}>
-              <Button  style={{height:30, width:30  }} onPress={this.onPressButton} >
+              <Button  style={{height:30, width:30  }} onPress={this.onPressBackButton} >
                 <FontAwesome style={styles.title}  size={30} name="arrow-left" />
               </Button>
               <Text style={styles.title}> {ShopName}</Text>
-              <Button  style={{height:30, width:30  }} onPress={this.onPressButton} >
+              <Button  style={{height:30, width:30  }} onPress={this.onPressLikeButton} >
                 <Ionicons size={30} color='white' name='md-heart-empty'/>
               </Button>
           </View>
@@ -101,7 +105,9 @@ export default class ShopScreen extends React.Component {
        
           <ListItem style={{  flexDirection:'row',   }}>
             <MaterialIcons backgroundColor="transparent" color="#1FB6FF" size={30} name="rate-review" />
-            <Review userName= '홍길동' content='good' rate={5}/>
+            <Review userName= '홍길동' content='good' rate={5} date='12/5'>
+              
+            </Review>
           </ListItem>
       
         </List>
