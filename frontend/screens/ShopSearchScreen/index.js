@@ -44,13 +44,7 @@ export default class App extends React.Component {
               longitude: this.state.long,
             }}/>
       
-          <MapView.Marker
-            coordinate={{
-              latitude:
-              longitude:
-      }}
-            style={{}}
-      />
+        
 
           
         </MapView>
