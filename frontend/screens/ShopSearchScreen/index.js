@@ -1,35 +1,36 @@
-const MembershipTabs = createBottomTabNavigator({
+import React from "react";
+import { Platform } from "react-native";
+import {
+  createBottomTabNavigator,
+  createStackNavigator
+} from "react-navigation";
+import Coupon from "./Coupon";
+import Map from "./Map";
+import { FontAwesome } from "@expo/vector-icons";
+import TabBarIcon from "../../components/TabBarIcon";
+import Colors from "../../constants/Colors";
 
-  Profile: {
+const ShopSearchTabs = createBottomTabNavigator({
 
-    screen: Profile,
+  Map: {
+
+    screen: Map,
 
     navigationOptions: {
 
-      title: "내정보",
+      title: "지도",
 
       tabBarIcon: ({ focused }) => (
-
         <TabBarIcon
-
           focused={focused}
-
           name={
-
             Platform.OS === "ios"
-
               ? `ios-person${focused ? "" : "-outline"}`
-
               : "md-person"
-
           }
-
         />
-
       )
-
     }
-
   },
 
   Coupon: {
@@ -77,3 +78,15 @@ const MembershipTabs = createBottomTabNavigator({
 }
 
 );
+
+
+
+export default createStackNavigator(
+
+  { MembershipTabs }, 
+
+  { 
+
+    headerMode: "none" ,
+
+  });
