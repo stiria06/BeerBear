@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { Content, ListItem, List } from "native-base";
+import { Content, ListItem, List, CardItem, Card } from "native-base";
 import { Ionicons, FontAwesome, MaterialIcons, Entypo } from '@expo/vector-icons';
 import Button from 'react-native-button';
-import ShopInfo from '../assets/ShopInfo';
+import ShopInfo from './assets/ShopInfo';
 
 class Review extends React.Component{
   render(){
@@ -33,9 +33,28 @@ class Review extends React.Component{
 
 }
 
-class Stars extends React.Component{
-  
-}
+const Rating = ({ star }) => {
+  return (
+    <CardItem>
+      {[...Array(star)].map((e, i) => {
+        return (
+          <View style={{marginRight:10}} key={i}>
+            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
+          </View>
+        );
+      })}
+      
+      {[...Array(5-star)].map((e, i) => {
+        return (
+          <View style={{marginRight:10}} key={i}>
+            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star-outline" />
+          </View>
+        );
+      })}
+      
+    </CardItem>
+  );
+};
 
 
 export default class ShopScreen extends React.Component {
@@ -43,7 +62,9 @@ export default class ShopScreen extends React.Component {
   constructor(){
     super()
     this.state={
-      text:''
+      text:'',
+
+      star: parseInt(ShopInfo[0].avgRating)
     } 
   }
 
@@ -63,13 +84,13 @@ export default class ShopScreen extends React.Component {
     let ShopAddress = ShopInfo[0].address;
     let ShopPhoneNum = ShopInfo[0].phone_num;
     let ShopHomepage = ShopInfo[0].homepage;
-    let ShopRate = 4.7;
+    let ShopRate = ShopInfo[0].avgRating;
 
     return (
       <View style={styles.container}>
         <View style = {styles.topBar}>
           <View style = {styles.title}>
-              <Button  style={{height:30, width:30  }} onPress={this.onPressBackButton} >
+              <Button  style={{height:10, width:10  }} onPress={this.onPressBackButton} >
                 <FontAwesome style={styles.title}  size={30} name="arrow-left" />
               </Button>
               <Text style={styles.title}> {ShopName}</Text>
@@ -87,12 +108,9 @@ export default class ShopScreen extends React.Component {
           </ListItem>
           <ListItem style={{  justifyContent:'center',   }}>
             <Text>{ShopRate}</Text>
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
+            <Rating star={this.state.star}/>
           </ListItem>
+          
           <ListItem style={{ flexDirection:'row', }}>
             <Entypo style={{}} color="#1FB6FF" size={30} name="shop" />
             <Text style={{ fontSize:21.33, paddingLeft:20}}>{ShopName}</Text>
@@ -118,6 +136,9 @@ export default class ShopScreen extends React.Component {
           </ListItem>
       
         </List>
+        <Card>
+          <Rating star={this.state.star}/>
+          </Card>
       </Content>
         
       </View>
