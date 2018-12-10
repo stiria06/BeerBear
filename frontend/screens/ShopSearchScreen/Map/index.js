@@ -3,7 +3,7 @@ import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 import MapView from 'react-native-maps';
 import ShopInfo from '../assets/ShopInfo';
 
-export default class App extends React.Component {
+export default class Map extends React.Component {
   constructor(props){
     super(props)
     this.state={
