@@ -1,101 +1,42 @@
-//실행되면 바로 찾게하기?
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
-  AppRegistry,
+  Image,
   StyleSheet,
-  TouchableHighlight,
-  View,
-  Button,
-} from 'react-native'
-import {
-  Container,
-  Header,
-  Content,
-  Card,
-  CardItem,
   Text,
-  Body,
-  Thumbnail,
-  Left,
-  Icon
-} from "native-base";
-
-export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { count: 0 }
-  }
-
-  onPress = () => {
-    this.setState({
-      count: this.state.count+1
-    })
-  }
-
- render() {
-    return (
-      <View style={styles.container}>
-        <TouchableHighlight
-          
-         style={styles.button}
-         onPress={this.onPress}
-        >
-         <Container>
-        <Header transparent />
-        <Content padder>
-          <Card>
-            <CardItem>
-              <Left>
-                <Thumbnail
-                  source={require("../../../assets/images/user.jpg")}
-                />
-                <Body>
-                  <Text>문대성</Text>
-                  <Text note>Beer Geek</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem bordered>
-              <Body>
-                <Text>
-                  The greatest danger for most of us is not that our aim is too
-                  high and we miss it, but that it is too low and we reach it.
-                </Text>
-              </Body>
-            </CardItem>
-          </Card>
-          
-        </Content>
-      </Container>
-         
-        </TouchableHighlight>
-        <View style={[styles.countContainer]}>
-          <TouchableHighlight>
-           <Text> o</Text>
-          </TouchableHighlight>
-        </View>
-      </View>
-    )
-  }
-}
+  View,
+  Animated,
+  TouchableOpacity,
+} from 'react-native';
+import friends from './assets/friends'
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 10
-  },
-  button: {
+  friend: {
+    flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'orange',
-    padding: 10
+    justifyContent: 'flex-start',
   },
-  countContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    
+  avatar: {
+    margin: 10,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
   },
-  countText: {
-    color: '#FF00FF'
+  name: {
+    fontSize: 18,
+    color: '#000',
   }
-})
+});
+
+export default class Friend extends Component {
+  render() {
+    let photo = friends[0].photo;
+    let fname = friends[0].name;
+    let lname = friends[0].address;
+    return (
+      <View style={styles.friend}>
+        <Image style={styles.avatar} source={{ uri: {photo}  }} />
+        <Text style={styles.name}>fname lname</Text>
+      </View>
+    );
+  }
+}
