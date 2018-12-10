@@ -1,12 +1,12 @@
 //실행되면 바로 찾게하기?
-import React from "react";
+import React, { Component } from 'react'
 import {
-  AsyncStorage,
+  AppRegistry,
   StyleSheet,
+  TouchableHighlight,
   View,
   Button,
-  TouchableOpacity
-} from "react-native";
+} from 'react-native'
 import {
   Container,
   Header,
@@ -19,29 +19,28 @@ import {
   Left,
   Icon
 } from "native-base";
-import Colors from "../../../constants/Colors";
 
-const BeerStamp = ({ stamp }) => {
-  return (
-    <CardItem>
-      {[...Array(stamp)].map((e, i) => {
-        return (
-          <View style={{marginRight:10}} key={i}>
-            <Icon style={{ fontSize: 30 }} color={Colors.tintColor} name="beer" />
-          </View>
-        );
-      })}
-    </CardItem>
-  );
-};
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+  }
 
-class Profile extends React.Component {
-  state = {
-    stamp: 5
-  };
-  render() {
+  onPress = () => {
+    this.setState({
+      count: this.state.count+1
+    })
+  }
+
+ render() {
     return (
-      <Container>
+      <View style={styles.container}>
+        <TouchableHighlight
+          
+         style={styles.button}
+         onPress={this.onPress}
+        >
+         <Container>
         <Header transparent />
         <Content padder>
           <Card>
@@ -65,27 +64,38 @@ class Profile extends React.Component {
               </Body>
             </CardItem>
           </Card>
-          <Card>
-            <CardItem>
-              <Text> 스탬프 현황 </Text>
-            </CardItem>
-            <CardItem>
-              <BeerStamp stamp={this.state.stamp} />
-            </CardItem>
-          </Card>
+          
         </Content>
       </Container>
-    );
+         
+        </TouchableHighlight>
+        <View style={[styles.countContainer]}>
+          <TouchableHighlight>
+           <Text> o</Text>
+          </TouchableHighlight>
+        </View>
+      </View>
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#fff"
+    justifyContent: 'center',
+    paddingHorizontal: 10
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: 'orange',
+    padding: 10
+  },
+  countContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    
+  },
+  countText: {
+    color: '#FF00FF'
   }
-});
-
-export default Profile;
+})
