@@ -6,8 +6,12 @@ import {
   View,
   Animated,
   TouchableOpacity,
+  TouchableHighlight,
+  Alert,
+  
 } from 'react-native';
-import friends from './assets/friends'
+import {Container} from 'native-base';
+import friends from '../assets/ShopInfo'
 
 const styles = StyleSheet.create({
   friend: {
@@ -31,15 +35,52 @@ const styles = StyleSheet.create({
 });
 
 export default class Friend extends Component {
+  constructor(){
+    super()
+    this.state={
+      bb:0
+    }
+  }
+  onPressButton(){
+    Alert.alert('You tapped the button!')
+  }
   render() {
     let photo = friends[0].photo;
     let fname = friends[0].name;
     let lname = friends[0].address;
     return (
-      <View style={styles.friend}>
-        <Image style={styles.avatar} source={{uri:photo}} />
-        <Text style={styles.name}>{fname} {lname}</Text>
-      </View>
+      <Container>
+        <TouchableHighlight style={{flex:1, }} onPress={this.onPressButton}>
+          <View style={styles.friend}>
+            <Image style={styles.avatar} source={{uri:photo}} />
+            <Text style={styles.name}>{fname} {lname} {this.state.bb}</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight style={{flex:1, }} onPress={this.onPressButton}>
+          <View style={styles.friend}>
+            <Image style={styles.avatar} source={{uri:photo}} />
+            <Text style={styles.name}>{fname} {lname} {this.state.bb}</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight style={{flex:1, }} onPress={this.onPressButton}>
+          <View style={styles.friend}>
+            <Image style={styles.avatar} source={{uri:photo}} />
+            <Text style={styles.name}>{fname} {lname} {this.state.bb}</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight style={{flex:1, }} onPress={this.onPressButton}>
+          <View style={styles.friend}>
+            <Image style={styles.avatar} source={{uri:photo}} />
+            <Text style={styles.name}>{fname} {lname} {this.state.bb}</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight style={{flex:1, }} onPress={this.onPressButton}>
+          <View style={styles.friend}>
+            <Image style={styles.avatar} source={{uri:photo}} />
+            <Text style={styles.name}>{fname} {lname} {this.state.bb}</Text>
+          </View>
+        </TouchableHighlight>
+      </Container>
     );
   }
 }
