@@ -50,7 +50,7 @@ export default class Friend extends Component {
     let lname = friends[0].address;
     return (
       <Container style={{flex:1}}>
-        <ScrollView>
+        <ScrollView style={{marginTop:30}}>
           <TouchableHighlight style={{}} onPress={this.onPressButton}>
             <View style={styles.friend}>
               <Image style={styles.avatar} source={{uri:photo}} />
