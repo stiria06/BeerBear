@@ -18,7 +18,8 @@ import {
   Left,
   Icon
 } from "native-base";
-import Colors from "../../../constants/Colors";
+//import UserInfo from "..assets/UserInfo";
+
 
 const BeerStamp = ({ stamp }) => {
   return (
@@ -26,7 +27,7 @@ const BeerStamp = ({ stamp }) => {
       {[...Array(stamp)].map((e, i) => {
         return (
           <View style={{marginRight:10}} key={i}>
-            <Icon style={{ fontSize: 30 }} color={Colors.tintColor} name="beer" />
+            <Icon style={{ fontSize: 30 }} color="#eee" name="beer" />
           </View>
         );
       })}
@@ -38,7 +39,16 @@ class Profile extends React.Component {
   state = {
     stamp: 5
   };
+  onPressButton(){
+    //누르면 대화요청.
+  }
   render() {
+   // let name = UserInfo[0].name;
+   // let age = UserInfo[0].age;
+   // let sex = UserInfo[0].sex;
+   // let photo = UserInfo[0].photo;
+    //let introduce = UserInfo[0].introduce;
+
     return (
       <Container>
         <Header transparent />
@@ -47,8 +57,7 @@ class Profile extends React.Component {
             <CardItem>
               <Left>
                 <Thumbnail
-                  source={require("../../../assets/images/user.jpg")}
-                />
+                                  />
                 <Body>
                   <Text>문대성</Text>
                   <Text note>Beer Geek</Text>
@@ -72,6 +81,9 @@ class Profile extends React.Component {
               <BeerStamp stamp={this.state.stamp} />
             </CardItem>
           </Card>
+          <Button title='asdf' onPressButton={this.onPressButton}>
+          
+          </Button>
         </Content>
       </Container>
     );
