@@ -4,9 +4,10 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from math import sin, cos, sqrt, atan2, radians
 
-from .models import BeerShop
+from .models import BeerShop, Stamp
 from .serializers import BeershopSerializer, BeershopDetailSerializer, FeedUserSerializer
 from beers.models import Beer
+from users.models import BeerBearCustomer,BeershopOwner
 
 class BeershopListCreateAPIView(APIView):
 
@@ -18,18 +19,20 @@ class BeershopListCreateAPIView(APIView):
 
 
     def post(self, request, format=None):
-        user = request.user
+        owner = get_object_or_404(BeershopOwner,pk=request.user.pk) 
         serializer = BeershopSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(owner=user)
+            serializer.save(owner=owner)
 
             return Response(data=serializer.data, status=status.HTTP_201_CREATED)
         
         else :
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class BeershopDetailAPIView(APIView):
 
+
+class BeershopDetailAPIView(APIView):
+    
     def get(self, request,pk, format=None):
         beershop = get_object_or_404(BeerShop, pk=pk)
         serializer = BeershopDetailSerializer(beershop)
@@ -37,15 +40,16 @@ class BeershopDetailAPIView(APIView):
         return Response(data=serializer.data, status=status.HTTP_200_OK)
         
     def put(self, request, pk, format=None):
-        user = request.user
+        owner = get_object_or_404(BeershopOwner, pk=request.user.pk)
+
         beershop = get_object_or_404(BeerShop, pk=pk)
 
-        if beershop.owner == user:
+        if beershop.owner == owner:
 
             serializer = BeershopDetailSerializer(beershop, data=request.data, partial=True)
 
             if serializer.is_valid():
-                serializer.save(owner=user)
+                serializer.save(owner=owner)
                 return Response(data=serializer.data, status=status.HTTP_200_OK)
 
             else:
@@ -55,11 +59,10 @@ class BeershopDetailAPIView(APIView):
             return Response(status=status.HTTP_401_UNAUTHORIZED)
         
     def delete(self, request, pk, format=None):
-        user = request.user
+        owner = get_object_or_404(BeershopOwner, pk=request.user.pk)
         beershop = get_object_or_404(BeerShop, pk=pk)
 
-        if beershop.owner == user:
-
+        if beershop.owner == owner:
             beershop.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -107,7 +110,7 @@ class BeerShopFavoriteAPIView(APIView):
         return Response(data=serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, beershop_id, format=None):
-        user = request.user
+        user = get_object_or_404(BeerBearCustomer, request.user.pk) 
         beershop = get_object_or_404(BeerShop, pk=beershop_id)
         userList = beershop.favorite_user_list.all()
         if user in userList:
@@ -116,3 +119,11 @@ class BeerShopFavoriteAPIView(APIView):
             beershop.favorite_user_list.add(user)
 
         return Response(status=status.HTTP_200_OK)
+
+class AddStampAPIView(APIView):
+    def post(self, request, customer_pk, format=None):
+        customer = get_object_or_404(BeerBearCustomer, pk=customer_pk)
+        owner = get_object_or_404(BeershopOwner, pk=request.user.pk)
+        beershop = get_object_or_404(BeerShop, owner)
+        Stamp.objects.create()
+        return Response(status=status.HTTP_201_CREATED)

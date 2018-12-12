@@ -8,7 +8,8 @@ from beers.models import Beer
 from beers.serializers import BeerSerializer
 from beershops.models import BeerShop
 from beershops.serializers import BeershopSerializer
-User = get_user_model()
+from .models import BeerBearCustomer, BeershopOwner, User
+from coupons.models import Coupon
 
 class UserSerializer(ModelSerializer):
     favorite_beer_list = SerializerMethodField()
@@ -26,3 +27,12 @@ class UserSerializer(ModelSerializer):
         serializer = BeershopSerializer(beerShopList, many=True)
         return serializer.data
 
+class BeerBearCustomerSerializer(ModelSerializer):
+    class Meta:
+        model = BeerBearCustomer
+        fields = ('__all__')
+
+class CouponSerializer(ModelSerializer):
+    class Meta:
+        model = Coupon
+        fields = ('__all__')

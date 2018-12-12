@@ -10,6 +10,7 @@ urlpatterns = [
     path('beers/', include('beers.urls', namespace="beers")),
     path('beershops/', include('beershops.urls', namespace="beershops")),
     path('users/', include('users.urls', namespace="users")),
+    path('chats/',include('chats.urls',namespace="chats")),
     path('api/auth/token/', obtain_jwt_token),
 ]
 

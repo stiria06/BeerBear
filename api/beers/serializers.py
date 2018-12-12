@@ -27,7 +27,7 @@ class BeerReviewSerializer(ModelSerializer):
     
     class Meta:
         model = BeerReview
-        field = (
+        fields = (
             'creator',
             'beer',
             'score',

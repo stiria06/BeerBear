@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+from users.models import User,BeerBearCustomer
 # Create your models here.
 
 
@@ -16,11 +16,21 @@ class Beer(models.Model):
     EST_CAL = models.IntegerField(null=True)
     avg_scr = models.FloatField(null=True)
     description = models.TextField(blank=True, null=True)
-    image = models.ImageField(null=True)
+    image = models.ImageField(null=True,blank=True)
     favorite_user_list = models.ManyToManyField(
-        User, related_name='favorite_beer_list',blank=True)
+        BeerBearCustomer, related_name='favorite_beer_list', blank=True)
     def __str__(self):
         return 'beer_id : {} - {}'.format(self.ref, self.name)
+
+    def addFavoriteUser(self, customer):
+        self.favorite_user_list.add(customer)
+
+    def deleteFavoriteUser(self, customer):
+        self.favorite_user_list.remove(customer)
+
+    def getBeerReviewList(self):
+        reviewList = BeerReview.objects.filter(beer=self)
+        return reviewList
 
 class BeerReview(models.Model):
     creator = models.ForeignKey(User, on_delete="CASCADE", null=True)
@@ -30,3 +40,6 @@ class BeerReview(models.Model):
     parent = models.ForeignKey("self", null=True, blank=True, on_delete="CASCADE")
     created_at = models.DateTimeField(auto_now_add=True)  # first created
     updated_at = models.DateTimeField(auto_now=True)  # last-modified
+    
+    class Meta:
+        ordering = ["-created_at"]
