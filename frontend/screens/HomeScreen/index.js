@@ -70,5 +70,5 @@ const HomeTabs = createBottomTabNavigator({
 export default createStackNavigator(
   { HomeTabs }, 
   { 
-    headerMode: "none" ,
+//    headerMode: "none" ,
   });
