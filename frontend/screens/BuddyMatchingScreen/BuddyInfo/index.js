@@ -4,7 +4,8 @@ import {
   StyleSheet,
   View,
   Button,
-  TouchableOpacity
+  TouchableOpacity,
+  Image,
 } from "react-native";
 import {
   Container,
@@ -21,23 +22,9 @@ import {
 //import UserInfo from "..assets/UserInfo";
 
 
-const BeerStamp = ({ stamp }) => {
-  return (
-    <CardItem>
-      {[...Array(stamp)].map((e, i) => {
-        return (
-          <View style={{marginRight:10}} key={i}>
-            <Icon style={{ fontSize: 30 }} color="#eee" name="beer" />
-          </View>
-        );
-      })}
-    </CardItem>
-  );
-};
-
 class Profile extends React.Component {
   state = {
-    stamp: 5
+    
   };
   onPressButton(){
     //누르면 대화요청.
@@ -51,40 +38,15 @@ class Profile extends React.Component {
 
     return (
       <Container>
-        <Header transparent />
-        <Content padder>
-          <Card>
-            <CardItem>
-              <Left>
-                <Thumbnail
-                                  />
-                <Body>
-                  <Text>문대성</Text>
-                  <Text note>Beer Geek</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem bordered>
-              <Body>
-                <Text>
-                  The greatest danger for most of us is not that our aim is too
-                  high and we miss it, but that it is too low and we reach it.
-                </Text>
-              </Body>
-            </CardItem>
-          </Card>
-          <Card>
-            <CardItem>
-              <Text> 스탬프 현황 </Text>
-            </CardItem>
-            <CardItem>
-              <BeerStamp stamp={this.state.stamp} />
-            </CardItem>
-          </Card>
-          <Button title='asdf' onPressButton={this.onPressButton}>
-          
-          </Button>
-        </Content>
+        <View style={{ }}>
+          <Image source={{uri:photo}} />
+          <Text> {name} </Text>
+          <Text> {sex}, {age} </Text>
+        </View>
+        <View style={{ }}>
+          <Text>{introduce}</Text>
+        </View>
+
       </Container>
     );
   }
