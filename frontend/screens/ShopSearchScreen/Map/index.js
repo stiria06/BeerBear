@@ -4,25 +4,26 @@ import MapView from 'react-native-maps';
 import ShopInfo from '../assets/ShopInfo';
 
 export default class Map extends React.Component {
-  constructor(props){
-    super(props)
-    this.state={
-      lat:100,
-      long:100,
-    }
+  state={
+    lat:0,
+    long:0,
+    shopLat:37.533489,
+    shopLong:126.994048,
+    shopName:'blue55',
   }
-  render() {
-    
+  
+  componentDidMount(){
     navigator.geolocation.getCurrentPosition(
-      position => {
-        var lati=position.coords.latitude
-        var longi=position.coords.longitude
+      (position) => {
         this.setState( {
-          lat: lati,
-          long: longi,
+          lat: position.coords.latitude,
+          long: position.coords.longitude
         })     
       }
     );
+  }
+
+  render() {
 
     return (
       <View style={styles.container}>
@@ -43,6 +44,14 @@ export default class Map extends React.Component {
               latitude: this.state.lat,
               longitude: this.state.long,
             }}/> 
+          <MapView.Marker
+            coordinate={{
+              latitude: this.state.shopLat,
+              longitude: this.state.shopLong,
+              
+            }}
+            title={this.state.shopName}
+            /> 
         </MapView>
       </View>
     );
