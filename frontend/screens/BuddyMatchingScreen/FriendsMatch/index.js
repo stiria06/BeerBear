@@ -11,7 +11,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {Container} from 'native-base';
-import friends from './assets/friends'
+import friends from './assets/buddyRecommendList'
 
 const styles = StyleSheet.create({
   friend: {
