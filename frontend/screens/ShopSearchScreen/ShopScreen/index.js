@@ -20,7 +20,11 @@ class Review extends React.Component{
               <Text>{this.props.rate}</Text>
               <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
               
-              <Button style={{height:30, width:30}} >
+              <Button style={{height:30, width:30}} title='리뷰 작성' >
+              </Button>
+              <Button style={{height:30, width:30}} title='리뷰 수정' >
+              </Button>
+              <Button style={{height:30, width:30}} title='리뷰 삭제' >
               </Button>
             </ListItem>
 
@@ -63,15 +67,18 @@ export default class ShopScreen extends React.Component {
     super()
     this.state={
       text:'',
-
+      //like: false,
       star: parseInt(ShopInfo[0].avgRating)
     } 
   }
 
   onPressLikeButton(){
+    //this.state.like==false ? this.setstate({like:true}),
+    //this.state.like==true ? this.setstate({like:false})
   }
 
   onPressBackButton(){
+    
   }
 
   onPressAddReviewButton(){}
@@ -96,6 +103,7 @@ export default class ShopScreen extends React.Component {
               <Text style={styles.title}> {ShopName}</Text>
               <Button  style={{height:30, width:30  }} onPress={this.onPressLikeButton} >
                 <Ionicons size={30} color='white' name='md-heart-empty'/>
+                //this.state.like==true ? 
               </Button>
           </View>
         </View>
