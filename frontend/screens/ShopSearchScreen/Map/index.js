@@ -1,57 +1,58 @@
 import React from 'react';
 import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 import MapView from 'react-native-maps';
-import ShopInfo from '../assets/ShopInfo';
+//import ShopInfo from '../assets/ShopInfo';
 
 export default class Map extends React.Component {
   state={
-    lat:0,
-    long:0,
+    region: {
+      latitude:0,
+      longitude:0,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    },
+    
     shopLat:37.533489,
     shopLong:126.994048,
     shopName:'blue55',
   }
-  
   componentDidMount(){
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        this.setState( {
-          lat: position.coords.latitude,
-          long: position.coords.longitude
+        var lati = position.coords.latitude
+        var longi = position.coords.longitude
+        var regioni = {
+          latitude: lati,
+          longitude: longi,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }
+        this.setState({
+          region: regioni,
         })     
       }
     );
   }
 
-  render() {
+  onRegionChange(region){
+    this.setState({region});
+  }
+  render() { 
 
     return (
       <View style={styles.container}>
-        <Text>{this.state.lat} {this.state.long} </Text>
+        <Text>{this.state.region.lat} {this.state.region.long} </Text>
+        
         <MapView 
           style={styles.map}
-          initialRegion={{
-            latitude:this.state.lat,
-            longitude:this.state.long,
-            latitudeDelta: 0.1,
-            longitudeDelta: 0.05,
-          }}
-          showsUserLocation
-          followsUserLocation
+          region={this.state.region }
         >
-          <MapView.Marker
-            coordinate={{
-              latitude: this.state.lat,
-              longitude: this.state.long,
-            }}/> 
           <MapView.Marker
             coordinate={{
               latitude: this.state.shopLat,
               longitude: this.state.shopLong,
-              
             }}
-            title={this.state.shopName}
-            /> 
+            title='{this.state.shopName}'/>
         </MapView>
       </View>
     );
@@ -70,4 +71,3 @@ const styles = StyleSheet.create({
     right:0,
   }
 });
-
