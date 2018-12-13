@@ -52,7 +52,7 @@ export default class Map extends React.Component {
               latitude: this.state.shopLat,
               longitude: this.state.shopLong,
             }}
-            title='{this.state.shopName}'/>
+            title={this.state.shopName}/>
         </MapView>
       </View>
     );
