@@ -56,8 +56,8 @@ export default class ShopScreen extends React.Component {
   
 
   _onPressLikeButton(){
-    const newLike = !this.state.isLiked;
-    this.setState({isLiked: newLike})
+    
+    this.setState({isLiked: !this.state.isLiked})
   }
 
   onPressBackButton(){
@@ -75,8 +75,8 @@ export default class ShopScreen extends React.Component {
     let ShopPhoneNum = ShopInfo[0].phone_num;
     let ShopHomepage = ShopInfo[0].homepage;
     
-    const isLiked = this.state.isLiked;
-    const likeIcon = isLiked? 'md-heart' : 'md-heart-empty';
+
+    let likeIcon = this.state.isLiked? 'md-heart' : 'md-heart-empty';
     
     return (
       <View style={styles.container}>
@@ -86,7 +86,7 @@ export default class ShopScreen extends React.Component {
                 <FontAwesome style={styles.title}  size={30} name="arrow-left" />
               </Button>
               <Text style={styles.title}> {ShopName} </Text>
-              <Button style={{height:30, width:30  }} onPress={this._onPressLikeButton}>
+              <Button style={{height:30, width:30  }} onPress={()=>{this._onPressLikeButton()}}>
                 <Ionicons size={30} color='white' name={likeIcon}/>
               </Button>
           </View>
