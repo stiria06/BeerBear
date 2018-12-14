@@ -1,13 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
 import { Content, ListItem, List, CardItem, Card } from "native-base";
 import { Ionicons, FontAwesome, MaterialIcons, Entypo } from '@expo/vector-icons';
 import Button from 'react-native-button';
 import ShopInfo from '../assets/ShopInfo';
 
+
+
+
 class Review extends React.Component{
   render(){
     return(
+
       <View style={{alignItems: 'center'}}>
         <Content>
           <List>
@@ -18,63 +22,42 @@ class Review extends React.Component{
               <Text>{this.props.rate}</Text>
               <Text>{this.props.date}</Text>
               <Text>{this.props.rate}</Text>
-              <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
               
-              <Button style={{height:30, width:30}} title='리뷰 작성' >
-              </Button>
-              <Button style={{height:30, width:30}} title='리뷰 수정' >
-              </Button>
-              <Button style={{height:30, width:30}} title='리뷰 삭제' >
-              </Button>
+              
             </ListItem>
+
 
       
           </List>
         </Content>
+        <View>
+          <Button style={{height:30, width:30}} title='리뷰 작성' >
+          </Button>
+          <Button style={{height:30, width:30}} title='리뷰 수정' >
+          </Button>
+          <Button style={{height:30, width:30}} title='리뷰 삭제' >
+          </Button>
+        </View>
       </View>
     );
   }
 
 }
 
-const Rating = ({ star }) => {
-  return (
-    <CardItem>
-      {[...Array(star)].map((e, i) => {
-        return (
-          <View style={{marginRight:10}} key={i}>
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star" />
-          </View>
-        );
-      })}
-      
-      {[...Array(5-star)].map((e, i) => {
-        return (
-          <View style={{marginRight:10}} key={i}>
-            <Ionicons backgroundColor="transparent" color="#1FB6FF" size={30} name="ios-star-outline" />
-          </View>
-        );
-      })}
-      
-    </CardItem>
-  );
-};
+
 
 
 export default class ShopScreen extends React.Component {
 
-  constructor(){
-    super()
-    this.state={
-      text:'',
-      //like: false,
-      star: parseInt(ShopInfo[0].avgRating)
+  
+    state={
+      isLiked: false,
     } 
-  }
+  
 
-  onPressLikeButton(){
-    //this.state.like==false ? this.setstate({like:true}),
-    //this.state.like==true ? this.setstate({like:false})
+  _onPressLikeButton(){
+    const newLike = !this.state.isLiked;
+    this.setState({isLiked: newLike})
   }
 
   onPressBackButton(){
@@ -91,8 +74,10 @@ export default class ShopScreen extends React.Component {
     let ShopAddress = ShopInfo[0].address;
     let ShopPhoneNum = ShopInfo[0].phone_num;
     let ShopHomepage = ShopInfo[0].homepage;
-    let ShopRate = ShopInfo[0].avgRating;
-
+    
+    const isLiked = this.state.isLiked;
+    const likeIcon = isLiked? 'md-heart' : 'md-heart-empty';
+    
     return (
       <View style={styles.container}>
         <View style = {styles.topBar}>
@@ -100,10 +85,9 @@ export default class ShopScreen extends React.Component {
               <Button  style={{height:10, width:10  }} onPress={this.onPressBackButton} >
                 <FontAwesome style={styles.title}  size={30} name="arrow-left" />
               </Button>
-              <Text style={styles.title}> {ShopName}</Text>
-              <Button  style={{height:30, width:30  }} onPress={this.onPressLikeButton} >
-                <Ionicons size={30} color='white' name='md-heart-empty'/>
-                //this.state.like==true ? 
+              <Text style={styles.title}> {ShopName} </Text>
+              <Button style={{height:30, width:30  }} onPress={this._onPressLikeButton}>
+                <Ionicons size={30} color='white' name={likeIcon}/>
               </Button>
           </View>
         </View>
@@ -114,15 +98,12 @@ export default class ShopScreen extends React.Component {
             <Image style={{ width:120, height:120, alignItems:'center'}} source={ShopPic}/>
             <Text style={{ paddingTop:10, fontSize:21.33, paddingLeft:20}}>{ShopName}</Text>
           </ListItem>
-          <ListItem style={{  justifyContent:'center',   }}>
-            <Text>{ShopRate}</Text>
-            <Rating star={this.state.star}/>
-          </ListItem>
+          
           
           <ListItem style={{ flexDirection:'row', }}>
             <Entypo style={{}} color="#1FB6FF" size={30} name="shop" />
             <Text style={{ fontSize:21.33, paddingLeft:20}}>{ShopName}</Text>
-          </ListItem>
+        </ListItem>
           <ListItem style={{ flexDirection:'row', }}>
             <FontAwesome style={{}} color="#1FB6FF" size={30} name="map-marker" />
             <Text style={{ fontSize:21.33, paddingLeft:20}}>{ShopAddress}</Text>
@@ -141,12 +122,11 @@ export default class ShopScreen extends React.Component {
             <MaterialIcons backgroundColor="transparent" color="#1FB6FF" size={30} name="rate-review" />
             <Review userName= '홍길동' content='good' rate={5} date='12/5'>
             </Review>
+            <Text>{!this.state.isLiked? 'dd': 'zz'}</Text>
           </ListItem>
       
         </List>
-        <Card>
-          <Rating star={this.state.star}/>
-          </Card>
+        
       </Content>
         
       </View>
